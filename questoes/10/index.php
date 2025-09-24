@@ -16,7 +16,26 @@
 
     <main>
 
-    <!-- implementação da solução -->
+    <form method="post">
+            <label for="segundos">Digite o tempo em segundos:</label>
+            <input type="number" name="segundos" id="segundos" min="0" required>
+
+            <button type="submit">Converter</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $totalSegundos = intval($_POST["segundos"]);
+
+            $horas = intdiv($totalSegundos, 3600);
+            $resto = $totalSegundos % 3600;
+
+            $minutos = intdiv($resto, 60);
+            $segundos = $resto % 60;
+
+            echo "<p>O evento durou: <strong>{$horas} horas, {$minutos} minutos e {$segundos} segundos</strong>.</p>";
+        }
+        ?>
      
     </main>
 </body>

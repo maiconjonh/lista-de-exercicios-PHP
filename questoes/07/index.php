@@ -16,7 +16,34 @@
 
     <main>
 
-    <!-- implementação da solução -->
+   <form method="post">
+            <label for="numero">Digite um número inteiro:</label>
+            <input type="number" name="numero" id="numero" min="0" required>
+            <button type="submit">Calcular Fatorial</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $numero = intval($_POST["numero"]);
+
+            if ($numero < 0) {
+                echo "<p>Fatorial não é definido para números negativos.</p>";
+            } else {
+                $fatorial = 1;
+                $sequencia = "";
+
+                for ($i = $numero; $i >= 1; $i--) {
+                    $fatorial *= $i;
+                    $sequencia .= $i;
+                    if ($i > 1) {
+                        $sequencia .= " × ";
+                    }
+                }
+
+                echo "<p>$numero! = $sequencia = <strong>$fatorial</strong></p>";
+            }
+        }
+        ?>
      
     </main>
 </body>

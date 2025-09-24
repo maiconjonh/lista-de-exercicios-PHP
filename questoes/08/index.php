@@ -16,8 +16,17 @@
 
     <main>
 
-    <!-- implementação da solução -->
-     
+    <?php
+     echo "<h2>Números ímpares entre 1 e 50</h2>";
+   echo "<p>";
+
+       for ($i = 1; $i <= 50; $i += 2) {
+     echo "<span style='margin-right:10px;'>$i</span>";
+  }
+
+     echo "</p>";
+    ?>
+
     </main>
 </body>
 

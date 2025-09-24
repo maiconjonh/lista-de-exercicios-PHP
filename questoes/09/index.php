@@ -16,7 +16,26 @@
 
     <main>
 
-    <!-- implementação da solução -->
+    <form method="post">
+            <label for="nome">Digite seu nome:</label>
+            <input type="text" name="nome" id="nome" required>
+
+            <label for="idade">Digite sua idade (em anos completos):</label>
+            <input type="number" name="idade" id="idade" min="0" required>
+
+            <button type="submit">Calcular Dias de Vida</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nome = trim($_POST["nome"]);
+            $idade = intval($_POST["idade"]);
+
+            $diasVida = $idade * 365;
+
+            echo "<p><strong>$nome</strong>, você já viveu aproximadamente <strong>$diasVida dias</strong>.</p>";
+        }
+        ?>
      
     </main>
 </body>
